@@ -1,9 +1,8 @@
 import unittest.mock
 
 import pytest
-from redis import ConnectionError
-
 from page_tracker.app import app
+from redis import ConnectionError
 
 
 @unittest.mock.patch("page_tracker.app.redis")
@@ -30,4 +29,4 @@ def test_should_handle_redis_connection_error(mock_redis, http_client):
 
     # Then
     assert response.status_code == 500
-    assert response.text == "Sorry, something went wrong \N{pensive face}"
+    assert response.text == "Sorry, something went wrong \N{thinking face}"
